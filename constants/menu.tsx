@@ -56,32 +56,32 @@ export const OPTIONS_BREED = [
     {
         id: 'dog',
         name: 'Cachorro',
-        image: <FontAwesome5 name="dog" size={50} color="black" />,
-        imageSelected: <FontAwesome5 name="dog" size={50} color="white" />,
+        image: <FontAwesome5 name="dog" size={30} color="black" />,
+        imageSelected: <FontAwesome5 name="dog" size={30} color="white" />,
     },
     {
         id: 'cat',
         name: 'Gato',
-        image: <FontAwesome5 name="cat" size={50} color="black" />,
-        imageSelected: <FontAwesome5 name="cat" size={50} color="white" />,
+        image: <FontAwesome5 name="cat" size={30} color="black" />,
+        imageSelected: <FontAwesome5 name="cat" size={30} color="white" />,
     },
     {
         id: 'rabbit',
         name: 'Coelho',
-        image: <MaterialCommunityIcons name="rabbit" size={50} color="black" />,
-        imageSelected: <MaterialCommunityIcons name="rabbit" size={50} color="white" />,
+        image: <MaterialCommunityIcons name="rabbit" size={30} color="black" />,
+        imageSelected: <MaterialCommunityIcons name="rabbit" size={30} color="white" />,
     },
     {
         id: 'horse',
         name: 'Cavalos',
-        image: <FontAwesome5 name="horse" size={50} color="black" />,
-        imageSelected: <FontAwesome5 name="horse" size={50} color="white" />,
+        image: <FontAwesome5 name="horse" size={30} color="black" />,
+        imageSelected: <FontAwesome5 name="horse" size={30} color="white" />,
     },
     {
         id: 'pig',
         name: 'Porcos',
-        image: <MaterialCommunityIcons name="pig-variant" size={50} color="black" />,
-        imageSelected: <MaterialCommunityIcons name="pig-variant" size={50} color="white" />,
+        image: <MaterialCommunityIcons name="pig-variant" size={30} color="black" />,
+        imageSelected: <MaterialCommunityIcons name="pig-variant" size={30} color="white" />,
     },
 ];
 
