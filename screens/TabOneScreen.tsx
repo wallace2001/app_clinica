@@ -26,11 +26,11 @@ interface Props {
 }
 
 export default function HomeScreen({
-  navigation,
+  navigation: navigationProps,
   drawerAnimationStyle,
   drawerHeaderAnimationStyle,
 }: Props) {
-  const [itemSelected, setitemSelected] = useState<string>('');
+  const [itemSelected, setitemSelected] = useState<string>("");
 
   let [fontsLoaded] = useFonts({
     Poppins_500Medium,
@@ -46,31 +46,31 @@ export default function HomeScreen({
   return (
     <Animated.View style={[styles.container, { ...drawerAnimationStyle }]}>
       <SafeAreaView>
-          <Animated.View
-            style={[styles.header, { ...drawerHeaderAnimationStyle }]}
+        <Animated.View
+          style={[styles.header, { ...drawerHeaderAnimationStyle }]}
+        >
+          <TouchableOpacity
+            onPress={() => navigationProps.openDrawer()}
+            activeOpacity={0.8}
           >
-            <TouchableOpacity
-              onPress={() => navigation.openDrawer()}
-              activeOpacity={0.8}
-            >
-              <Ionicons name="menu-outline" size={27} color="black" />
-            </TouchableOpacity>
+            <Ionicons name="menu-outline" size={27} color="black" />
+          </TouchableOpacity>
 
-            <View style={styles.contentLocationHeader}>
-              <Text style={styles.locationText}>Location</Text>
-              <View style={styles.location}>
-                <Entypo name="location-pin" size={27} color="#02a881" />
-                <Text style={styles.textCity}>{profile.city},</Text>
-                <Text style={styles.textCountry}> {profile.country}</Text>
-              </View>
+          <View style={styles.contentLocationHeader}>
+            <Text style={styles.locationText}>Location</Text>
+            <View style={styles.location}>
+              <Entypo name="location-pin" size={27} color="#02a881" />
+              <Text style={styles.textCity}>{profile.city},</Text>
+              <Text style={styles.textCountry}> {profile.country}</Text>
             </View>
+          </View>
 
-            <Image
-              source={{ uri: profile.icon }}
-              style={{ width: 30, height: 30, borderRadius: 15 }}
-            />
-          </Animated.View>
-          <ScrollView>
+          <Image
+            source={{ uri: profile.icon }}
+            style={{ width: 30, height: 30, borderRadius: 15 }}
+          />
+        </Animated.View>
+        <ScrollView>
           <View style={styles.content}>
             <View style={styles.search}>
               <View style={styles.searchLeft}>
@@ -87,27 +87,37 @@ export default function HomeScreen({
             <View>
               <FlatList
                 data={OPTIONS_BREED}
-                renderItem={({ item }) => <BoxSelect setitemSelected={setitemSelected} itemSelected={itemSelected} item={item} />}
+                renderItem={({ item }) => (
+                  <BoxSelect
+                    setitemSelected={setitemSelected}
+                    itemSelected={itemSelected}
+                    item={item}
+                  />
+                )}
                 style={styles.optionsFlatList}
                 showsHorizontalScrollIndicator={false}
                 horizontal
-                />
+              />
             </View>
 
-            {ANIMALS.map(animal => {
-                return (
-                  <BoxAnimals
-                    breed={animal.breed}
-                    distance={animal.distance}
-                    image={animal.image}
-                    name={animal.name}
-                    sex={animal.sex}
-                    year={animal.year}
-                    backgroundColor={animal.backgroundColor}
-                    key={animal.id}
-                  />
-                );
-              })}
+            {ANIMALS.map((animal) => {
+              return (
+                <BoxAnimals
+                  item={{
+                    breed: animal.breed,
+                    distance: animal.distance,
+                    image: animal.image,
+                    name: animal.name,
+                    sex: animal.sex,
+                    location: animal.location,
+                    year: animal.year,
+                    id: animal.id,
+                    backgroundColor: animal.backgroundColor,
+                  }}
+                  key={animal.id}
+                />
+              );
+            })}
           </View>
         </ScrollView>
       </SafeAreaView>

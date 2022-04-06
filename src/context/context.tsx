@@ -8,7 +8,7 @@ interface ContextProps {
 export const ContextApp = createContext({} as ContextProps);
 
 export const AppProvider = ({children}) => {
-    const [screenSelected, setScreenSelected] = useState<string>('');
+    const [screenSelected, setScreenSelected] = useState<string>('adoption');
 
     const onPressToSelectScreen = (value: string) => {
         setScreenSelected(value);
